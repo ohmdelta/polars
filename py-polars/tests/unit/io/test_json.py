@@ -719,3 +719,9 @@ def test_ndjson_no_cast_int_to_float_19138() -> None:
         ),
         pl.DataFrame({"a": [2.7, 1]}),
     )
+
+
+def test_write_table_json() -> None:
+    df = pl.DataFrame({"a": [1, 2, 3], "b": ["a", "b", None]})
+    out = df.write_table_json()
+    assert out == '{"schema":{"fields":[{"name":"a","type":"Int64"},{"name":"b","type":"String"}]},"data":[{"a":1,"b":"a"},{"a":2,"b":"b"},{"a":3,"b":null}]}'

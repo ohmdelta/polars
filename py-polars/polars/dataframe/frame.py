@@ -2871,7 +2871,7 @@ class DataFrame:
         ...     }
         ... )
         >>> df.write_table_json()
-        '{"data": [{"foo":1,"bar":6},{"foo":2,"bar":7},{"foo":3,"bar":8}]}'
+        '{"schema":{"fields":[{"name":"foo","type":"number"},{"name":"bar","type":"Int64"}]},"data": [{"foo":1,"bar":6},{"foo":2,"bar":7},{"foo":3,"bar":8}]}'
         """
 
         def write_table_json_to_string() -> str:
